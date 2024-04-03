@@ -2,27 +2,27 @@ const currencies = [
   {
     symbol: "USD",
     name: "Dolar amerykański",
-    rate: 3.9857,
+    rate: 3.9843,
   },
   {
     symbol: "Eur",
     name: "Euro",
-    rate: 4.3153,
+    rate: 4.2923,
   },
   {
     symbol: "GBP",
     name: "Funt szterling",
-    rate: 5.0327,
+    rate: 4.3875,
   },
   {
     symbol: "JPY",
     name: "Jen Japoński",
-    rate: 0.0026347,
+    rate: 0.0026262,
   },
   {
     symbol: "CZK",
     name: "korona czeska",
-    rate: 0.1706,
+    rate: 0.1697,
   },
 ];
 
