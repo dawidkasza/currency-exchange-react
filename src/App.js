@@ -4,6 +4,7 @@ import currencies from "./currency";
 import Form from "./Form";
 import Result from "./Result";
 import { Clock } from "./Clock";
+import { StyledApp, Info } from "./styled";
 
 function App() {
   const [result, setResult] = useState(null);
@@ -19,14 +20,12 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <StyledApp>
       <Clock />
       <Form result={result} calculateResult={calculateResult} />
       <Result result={result} />
-      <p className="text">
-        Kursy pochodzą z Tabela nr 066/A/NBP/2024 z dnia 2024-04-03
-      </p>
-    </div>
+      <Info>Kursy pochodzą z Tabela nr 066/A/NBP/2024 z dnia 2024-04-03</Info>
+    </StyledApp>
   );
 }
 
