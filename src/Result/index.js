@@ -1,13 +1,13 @@
-import "./style.css";
+import { Box } from "./styled";
 
 const Result = ({ result }) =>
   !!result && (
-    <p className="result">
+    <Box>
       {result.sourceAmount.toFixed(2)}&nbsp;PLN&nbsp;={" "}
       <strong>
         {result.targetAmount.toFixed(2)}&nbsp;{result.currency}
       </strong>
-    </p>
+    </Box>
   );
 
 export default Result;
