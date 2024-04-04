@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Container } from "./styled";
+import { Box } from "./styled";
 
 const formatDate = (date) =>
   date.toLocaleString(undefined, {
@@ -23,5 +23,5 @@ export const Clock = () => {
     };
   }, []);
 
-  return <Container>{formatDate(date)}</Container>;
+  return <Box>{formatDate(date)}</Box>;
 };

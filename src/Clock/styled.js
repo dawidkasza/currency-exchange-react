@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Box = styled.div`
   text-align: right;
   font-family: monospace;
   color: #000;
