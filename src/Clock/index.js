@@ -1,6 +1,15 @@
 import { useEffect, useState } from "react";
 import { Container } from "./styled";
 
+const formatDate = (date) =>
+  date.toLocaleString(undefined, {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    day: "numeric",
+    month: "long",
+  });
+
 export const Clock = () => {
   const [date, setDate] = useState(new Date());
 
@@ -14,15 +23,5 @@ export const Clock = () => {
     };
   }, []);
 
-  return (
-    <Container className="clock">
-      {date.toLocaleString(undefined, {
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        day: "numeric",
-        month: "long",
-      })}
-    </Container>
-  );
+  return <Container>{formatDate(date)}</Container>;
 };
