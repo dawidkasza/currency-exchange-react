@@ -1,4 +1,3 @@
-import "./style.css";
 import { useState } from "react";
 import currencies from "../currency";
 import { Fieldset, Legend, LabelText, Field, Button } from "./styled";
