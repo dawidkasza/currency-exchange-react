@@ -1,6 +1,7 @@
 import "./style.css";
 import { useState } from "react";
 import currencies from "../currency";
+import { Fieldset, Legend, LabelText, Field, Button } from "./styled";
 
 const Form = ({ calculateResult }) => {
   const [currency, setCurrency] = useState(currencies[0].symbol);
@@ -13,12 +14,13 @@ const Form = ({ calculateResult }) => {
 
   return (
     <form onSubmit={onFormsubmit}>
-      <fieldset className="form__fieldset">
-        <legend className="form__legend">Przelicznik walut</legend>
+      <Fieldset>
+        <Legend>Przelicznik walut</Legend>
         <p>
           <label>
-            <span className="form__labelText">Waluta:</span>
-            <select
+            <LabelText>Waluta:</LabelText>
+            <Field
+              as="select"
               value={currency}
               onChange={({ target }) => setCurrency(target.value)}
               className=" form__field"
@@ -28,13 +30,13 @@ const Form = ({ calculateResult }) => {
                   {currency.symbol} - {currency.name}
                 </option>
               ))}
-            </select>
+            </Field>
           </label>
         </p>
         <p>
           <label>
-            <span className="form__labelText">Kwota w złotówkach:</span>
-            <input
+            <LabelText>Kwota w złotówkach:</LabelText>
+            <Field
               value={amount}
               onChange={({ target }) => setAmount(target.value)}
               className=" form__field"
@@ -45,9 +47,9 @@ const Form = ({ calculateResult }) => {
             />
           </label>
         </p>
-      </fieldset>
+      </Fieldset>
       <p>
-        <button className="form__button">Przelicz</button>
+        <Button className="form__button">Przelicz</Button>
       </p>
     </form>
   );
