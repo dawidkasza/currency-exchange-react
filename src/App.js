@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./App.css";
 import currencies from "./currency";
 import Form from "./Form";
 import Result from "./Result";
