@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
 export const Fieldset = styled.fieldset`
-  background-color: #ccc;
+  background-color: ${({ theme }) => theme.color.silver};
   padding: 10px;
   border-radius: 5px;
 `;
 
 export const Legend = styled.legend`
-  background-color: darkred;
+  background-color: ${({ theme }) => theme.color.darkred};
   padding: 3px 10px;
   border-radius: 5px;
-  color: aliceblue;
+  color: ${({ theme }) => theme.color.white};
 `;
 
 export const LabelText = styled.span`
@@ -29,8 +29,8 @@ export const Field = styled.input`
 export const Button = styled.button`
   width: 100%;
   border: none;
-  background-color: darkred;
-  color: white;
+  background-color: ${({ theme }) => theme.color.darkred};
+  color: ${({ theme }) => theme.color.white};
   padding: 10px;
   border-radius: 5px;
 
