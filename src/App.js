@@ -1,29 +1,23 @@
-import { useState } from "react";
-import currencies from "./currency";
-import Form from "./Form";
-import Result from "./Result";
+import { Form } from "./Form";
 import { Clock } from "./Clock";
-import { StyledApp, Info } from "./styled";
+import { StyledApp } from "./styled";
+import { useRatesData } from "./useRatesDate";
+import { Loading } from "./Loading";
+import { Failure } from "./Failure";
 
 function App() {
-  const [result, setResult] = useState(null);
-
-  const calculateResult = (amount, currency) => {
-    const rate = currencies.find(({ symbol }) => symbol === currency).rate;
-
-    setResult({
-      sourceAmount: +amount,
-      targetAmount: amount / rate,
-      currency,
-    });
-  };
+  const ratesData = useRatesData();
 
   return (
     <StyledApp>
       <Clock />
-      <Form result={result} calculateResult={calculateResult} />
-      <Result result={result} />
-      <Info>Kursy pochodzą z Tabela nr 066/A/NBP/2024 z dnia 2024-04-03</Info>
+      {ratesData.state === "loading" ? (
+        <Loading />
+      ) : ratesData.state === "error" ? (
+        <Failure />
+      ) : (
+        <Form ratesData={ratesData} />
+      )}
     </StyledApp>
   );
 }

@@ -1,6 +1,6 @@
 import { Box } from "./styled";
 
-const Result = ({ result }) =>
+export const Result = ({ result }) =>
   !!result && (
     <Box>
       {result.sourceAmount.toFixed(2)}&nbsp;PLN&nbsp;={" "}
@@ -9,5 +9,3 @@ const Result = ({ result }) =>
       </strong>
     </Box>
   );
-
-export default Result;

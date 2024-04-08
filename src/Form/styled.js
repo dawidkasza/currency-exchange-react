@@ -42,3 +42,7 @@ export const Button = styled.button`
     filter: brightness(120%);
   }
 `;
+
+export const Info = styled.p`
+  text-align: center;
+`;

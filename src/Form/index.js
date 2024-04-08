@@ -1,10 +1,23 @@
 import { useState } from "react";
-import currencies from "../currency";
-import { Fieldset, Legend, LabelText, Field, Button } from "./styled";
+import { Fieldset, Legend, LabelText, Field, Button, Info } from "./styled";
+import { Result } from "../Result";
 
-const Form = ({ calculateResult }) => {
-  const [currency, setCurrency] = useState(currencies[0].symbol);
+export const Form = ({ ratesData }) => {
+  const date = new Date(ratesData.date);
+  const [result, setResult] = useState();
+
   const [amount, setAmount] = useState("");
+  const [currency, setCurrency] = useState("EUR");
+
+  const calculateResult = (amount, currency) => {
+    const rate = ratesData.rates[currency];
+
+    setResult({
+      sourceAmount: +amount,
+      targetAmount: amount * rate,
+      currency,
+    });
+  };
 
   const onFormsubmit = (event) => {
     event.preventDefault();
@@ -22,11 +35,10 @@ const Form = ({ calculateResult }) => {
               as="select"
               value={currency}
               onChange={({ target }) => setCurrency(target.value)}
-              className=" form__field"
             >
-              {currencies.map((currency) => (
-                <option value={currency.symbol} key={currency.symbol}>
-                  {currency.symbol} - {currency.name}
+              {Object.keys(ratesData.rates).map((currency) => (
+                <option key={currency} value={currency}>
+                  {currency}
                 </option>
               ))}
             </Field>
@@ -38,9 +50,7 @@ const Form = ({ calculateResult }) => {
             <Field
               value={amount}
               onChange={({ target }) => setAmount(target.value)}
-              className=" form__field"
               type="number"
-              name="amount"
               min="0.01"
               step="0.01"
             />
@@ -50,8 +60,12 @@ const Form = ({ calculateResult }) => {
       <p>
         <Button className="form__button">Przelicz</Button>
       </p>
+      <Result result={result} />
+
+      <Info>
+        Kursy pochodzą z Tabela nr 066/A/NBP/2024 z dnia{" "}
+        {date.toLocaleDateString()}
+      </Info>
     </form>
   );
 };
-
-export default Form;
