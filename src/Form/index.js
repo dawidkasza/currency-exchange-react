@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Fieldset, Legend, LabelText, Field, Button, Info } from "./styled";
-import { Result } from "../Result";
+import { Result } from "./Result";
 
 export const Form = ({ ratesData }) => {
   const date = new Date(ratesData.date);
