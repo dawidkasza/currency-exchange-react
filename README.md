@@ -1,7 +1,8 @@
 # Currency exchange
 
 ## Demo
-![kantor](https://github.com/dawidkasza/currency-exchange-react/assets/98289771/b0089941-6c2d-43a5-b4f1-3bcbff3ff7fc)
+![kalkulator](https://github.com/dawidkasza/currency-exchange-react/assets/98289771/e441b57b-f1f9-48b6-bbd1-560a6177126e)
+
 
 
 ## Description
@@ -17,6 +18,7 @@ Currency converter is project created in React.js. It is a simple calculator whi
 - Grid
 - Flex
 - Immutability
+- Axios
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
