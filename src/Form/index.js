@@ -6,10 +6,7 @@ export const Form = ({ ratesData }) => {
   const date = new Date(ratesData.date);
   const [result, setResult] = useState();
 
-  const [amount, setAmount] = useState("");
-  const [currency, setCurrency] = useState("EUR");
-
-  const calculateResult = (amount, currency) => {
+  const calculateResult = (currency, amount) => {
     const rate = ratesData.rates[currency];
 
     setResult({
@@ -19,9 +16,12 @@ export const Form = ({ ratesData }) => {
     });
   };
 
+  const [currency, setCurrency] = useState("EUR");
+  const [amount, setAmount] = useState("");
+
   const onFormsubmit = (event) => {
     event.preventDefault();
-    calculateResult(amount, currency);
+    calculateResult(currency, amount);
   };
 
   return (
