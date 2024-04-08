@@ -7,11 +7,9 @@ export const Form = ({ ratesData }) => {
   const [result, setResult] = useState();
 
   const calculateResult = (currency, amount) => {
-    const rate = ratesData.rates[currency];
-
     setResult({
       sourceAmount: +amount,
-      targetAmount: amount * rate,
+      targetAmount: amount * ratesData.rates[currency].value,
       currency,
     });
   };
@@ -58,7 +56,7 @@ export const Form = ({ ratesData }) => {
         </p>
       </Fieldset>
       <p>
-        <Button className="form__button">Przelicz</Button>
+        <Button>Przelicz</Button>
       </p>
       <Result result={result} />
 
